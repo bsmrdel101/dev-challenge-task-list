@@ -4,11 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "dev": "vite",
     "test:e2e": "playwright test && rm -rf playwright-report ./test-results",
-    "build": "tsc -b && vite build",
-    "lint": "eslint . && stylelint **/*.scss",
-    "preview": "vite preview"
+    "test:e2e:ui": "playwright test --ui && rm -rf playwright-report ./test-results",
+    "test": "run-s test:e2e",
+    "lint:ts": "eslint .",
+    "lint:scss": "stylelint **/*.scss",
+    "lint": "run-s lint:ts lint:scss"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -27,6 +31,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "npm-run-all": "^4.1.5",
     "sass-embedded": "^1.86.3",
     "stylelint": "^16.18.0",
     "stylelint-config-standard": "^38.0.0",
