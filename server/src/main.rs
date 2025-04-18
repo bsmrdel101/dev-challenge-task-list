@@ -32,7 +32,7 @@ async fn main() -> tide::Result<()> {
   controllers::tasks::init(&mut app);
 
   let port = env::var("PORT").unwrap_or_else(|_| "8080".to_string());
-  let address = format!("127.0.0.1:{}", port);
+  let address = format!("{}:{}", if env::var("RAILWAY_ENVIRONMENT_NAME") == Ok("production".into()) {"http://0.0.0.0"} else {"http://127.0.0.1"}, port);
   app.listen(address).await?;
   Ok(())
 }

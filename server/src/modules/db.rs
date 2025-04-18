@@ -6,7 +6,7 @@ use dotenv::dotenv;
 
 pub async fn init_pool() -> Result<PgPool, sqlx::Error> {
   dotenv().ok();
-  let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+  let database_url = env::var("DATABASE_URL").unwrap();
 
   PgPoolOptions::new()
     .max_connections(5)
