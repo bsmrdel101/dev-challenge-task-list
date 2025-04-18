@@ -7,7 +7,7 @@
     "dev": "vite",
     "test:e2e": "playwright test && rm -rf playwright-report ./test-results",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . && stylelint **/*.scss",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -28,6 +28,9 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "sass-embedded": "^1.86.3",
+    "stylelint": "^16.18.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
