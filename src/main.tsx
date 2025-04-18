@@ -8,7 +8,7 @@ import routes from '~react-pages';
 import './styles/index.scss';
 
 
-function App() {
+export function App() {
   return (
     <Suspense fallback={<p>Loading...</p>}>
       {useRoutes(routes)}
