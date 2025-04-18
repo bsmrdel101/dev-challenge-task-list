@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllTasks } from "../../controllers/tasksController";
+import TaskRow from "./TaskRow";
+import NewTaskRow from "./NewTaskRow";
 
 
 export default function TaskList() {
@@ -17,8 +19,10 @@ export default function TaskList() {
   return (
     <div className="task-list">
       {tasks.map((task: Task) => {
-        return <p key={task.id}>{ task.title }</p>;
+        return <TaskRow key={task.id} task={task} />;
       })}
+
+      <NewTaskRow />
     </div>
   );
 }

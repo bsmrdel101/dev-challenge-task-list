@@ -1,0 +1,59 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-row {
+  display: flex;
+  gap: 1.5rem;
+  border-radius: 1rem;
+  padding: 1rem;
+
+  &__img {
+    padding: 1rem;
+    background-color: var(--white-0);
+    border-radius: 1rem;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+
+    h2 {
+      font-size: var(--font-subtitle);
+    }
+
+    p {
+      font-weight: 300;
+    }
+  }
+
+  &--todo {
+    background-color: var(--gray-2);
+  }
+
+  &--in-progress {
+    background-color: var(--yellow-0);
+  }
+
+  &--completed {
+    background-color: var(--green-1);
+  }
+
+  &--wont-do {
+    background-color: var(--pink-0);
+  }
+}
+
+.new-task-row {
+  background-color: var(--beige-0);
+
+  button {
+    background-color: var(--orange-0);
+    border: none;
+    border-radius: 1rem;
+    padding: 0.8rem;
+  }
+}
