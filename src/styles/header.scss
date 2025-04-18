@@ -1,0 +1,12 @@
+.header {
+  margin-top: 3rem;
+
+  &__title {
+    display: flex;
+    gap: 0.7rem;
+  }
+
+  &__subtitle {
+    margin-left: 3.25rem;
+  }
+}
