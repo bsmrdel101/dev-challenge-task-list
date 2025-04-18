@@ -22,7 +22,7 @@ async fn main() -> tide::Result<()> {
   let mut app = tide::with_state(pool.clone());
 
   let cors = CorsMiddleware::new()
-    .allow_origin(Origin::from(if env::var("NODE_ENV") == Ok("production".into()) {"https://task-list-dev-challenge.up.railway.app"} else {"http://localhost:5173"}))
+    .allow_origin(Origin::from(if env::var("RAILWAY_ENVIRONMENT_NAME") == Ok("production".into()) {"https://task-list-dev-challenge.up.railway.app"} else {"http://localhost:5173"}))
     .allow_methods(HeaderValue::from_str("GET, POST, PUT, PATCH, DELETE, OPTIONS")?)
     .allow_headers(HeaderValue::from_str("Content-Type")?)
     .allow_headers(HeaderValue::from_str("Authorization")?);
