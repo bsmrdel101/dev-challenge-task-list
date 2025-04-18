@@ -21,9 +21,9 @@ pub fn init(app: &mut tide::Server<DbPool>) {
 
 async fn get_all_tasks(req: Request<DbPool>) -> tide::Result {
   let pool = req.state();
-  let res: Vec<Task> = sqlx::query_as::<_, Task>("SELECT * FROM tasks")
-    .fetch_all(pool.as_ref())
-    .await?;
+  let res: Vec<Task> = sqlx::query_as::<_, Task>("
+    SELECT * FROM tasks;
+  ").fetch_all(pool.as_ref()).await?;
 
   Ok(Response::builder(StatusCode::Ok)
     .body(Body::from_json(&res)?)
